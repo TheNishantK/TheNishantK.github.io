@@ -1,225 +1,342 @@
-<!DOCTYPE html>
-<html>
-<title>Nishant Kumar Portfolio</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
-</style>
-<body class="w3-light-grey">
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Valentine 💘</title>
+  <style>
+    :root {
+      --bg1: #7a001a;
+      --bg2: #b3002d;
+      --card: rgba(255, 255, 255, 0.12);
+      --card2: rgba(255, 255, 255, 0.18);
+      --text: #fff;
+      --yes: #22c55e;
+      --no: #ef4444;
+      --shadow: 0 16px 45px rgba(0,0,0,.35);
+    }
 
-<!-- Page Container -->
-<div class="w3-content w3-margin-top" style="max-width:1400px;">
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; }
 
-  <!-- The Grid -->
-  <div class="w3-row-padding">
-  
-    <!-- Left Column -->
-    <div class="w3-third">
-    
-      <div class="w3-white w3-text-grey w3-card-4">
-        <div class="w3-display-container">
-          <img src="nishant.jpg" style="width:100%" alt="Avatar">
-          <div class="w3-display-bottomleft w3-container w3-text-black">
-            <h2>Nishant Kumar</h2>
-          </div>
-        </div>
-        <div class="w3-container">
-          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Tech Developer</p>
-          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>New Delhi, India</p>
-          <p><i class="fa fa-graduation-cap fa-fw w3-margin-right w3-large w3-text-teal"></i>B.Tech, Computer Engineering</p>
-          <p><i class="fa fa-certificate fa-fw w3-margin-right w3-large w3-text-teal"></i>NIT Kurukshetra</p>
-          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>nishantnitk14@gmail.com</p>
-          <hr>
+    /* Animated hearts + roses background */
+    body {
+      overflow: hidden;
+      color: var(--text);
+      background: radial-gradient(1200px 700px at 30% 20%, #ff4d6d 0%, rgba(255,77,109,0.0) 55%),
+                  radial-gradient(900px 600px at 70% 80%, #ff8fab 0%, rgba(255,143,171,0.0) 55%),
+                  linear-gradient(135deg, var(--bg1), var(--bg2));
+      position: relative;
+    }
 
-          <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
-          <p>C</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:75%">75%</div>
-          </div>
-          <p>C++</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:65%">
-              <div class="w3-center w3-text-white">65%</div>
-            </div>
-          </div>
-          <p>Arduino</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:85%">85%</div>
-          </div>
-          <p>Embedded C</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:70%">70%</div>
-          </div>
-          <p>Python</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:70%">70%</div>
-          </div>
-          <p>Web Technologies</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:55%">55%</div>
-          </div>
-          <p>Wireless Technologies</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:50%">50%</div>
-          </div>
-          <p>Project Management</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:55%">55%</div>
-          </div>
-          <p>Team Management</p>
-          <div class="w3-light-grey w3-round-xlarge w3-small">
-            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:75%">75%</div>
-          </div>
-          <br>
-        </div>
-      </div><br>
+    /* Emoji pattern layer */
+    .pattern {
+      position: absolute;
+      inset: -20%;
+      opacity: 0.18;
+      transform: rotate(-10deg);
+      pointer-events: none;
+      filter: blur(0.2px);
+      background-image:
+        radial-gradient(circle at 10px 10px, rgba(255,255,255,0.15) 0 1px, transparent 1px),
+        radial-gradient(circle at 40px 40px, rgba(255,255,255,0.10) 0 1px, transparent 1px);
+      background-size: 60px 60px;
+      animation: floatPattern 10s ease-in-out infinite alternate;
+    }
+    @keyframes floatPattern {
+      from { transform: translate(-1.5%, -1.5%) rotate(-10deg); }
+      to   { transform: translate(1.5%, 1.5%) rotate(-10deg); }
+    }
 
-    <!-- End Left Column -->
-    </div>
+    /* Floating emoji (hearts + roses) */
+    .floaters {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .floater {
+      position: absolute;
+      font-size: clamp(18px, 2.2vw, 32px);
+      opacity: 0.8;
+      animation: rise linear infinite;
+      filter: drop-shadow(0 8px 10px rgba(0,0,0,.25));
+      will-change: transform, opacity;
+    }
+    @keyframes rise {
+      0%   { transform: translateY(110vh) translateX(0) rotate(0deg); opacity: 0; }
+      10%  { opacity: 0.85; }
+      90%  { opacity: 0.85; }
+      100% { transform: translateY(-30vh) translateX(40px) rotate(20deg); opacity: 0; }
+    }
 
-    <!-- Right Column -->
-    <div class="w3-twothird">
-    
-      <div class="w3-container w3-card w3-white w3-margin-bottom">
-        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>My Projects</h2>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Swarming of drones</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-microchip fa-fw w3-margin-right"></i><span class="w3-tag w3-teal w3-round">ROS, Gazebo, Drone, C++</span></h6>
-          <p>Worked to develop a swarming technology for flying many drones together in synchronization by developing the swarming algorithms and communication protocols between the drones. It was simulation on ROS. For major project.</p>
-          <hr>
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Devnagari Handwritten Charcter Recognition using RNN</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-microchip fa-fw w3-margin-right"></i><span class="w3-tag w3-teal w3-round">AI, RNN, Python</span></h6>
-          <p>Worked to recognize handwritten characters using recurrent neural networks and saving them in computer readable format like ASCII or UTF. This was for my minors.</p>
-          <hr>
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Automation for Formula Student Vehicle Phantom</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-microchip fa-fw w3-margin-right"></i><span class="w3-tag w3-teal w3-round">AVR, Arduino, Pneumatics</span></h6>
-          <p>Engineered electronic gear shifter for prototype car Phantom for SAE club using pneumatics and Atmega 328p microcontroller with Arduino environment. Also worked to make it clutchless and automatic acceleration using sensors. </p><br>
-          <hr>
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Electronic Data Acquisition System</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-microchip fa-fw w3-margin-right"></i><span class="w3-tag w3-teal w3-round">Arduino, Sensors, Productivity Enhancement</span></h6>
-          <p>Designed a data collecting hub for prototype car NX-06 for SAE club using Arduino and various sensors for collecting data like acceleration, speed, distance travelled, shocker travel etc. This DAQ helped in improving the performance of the vehicle by fine tuning it.</p>
-          <hr>
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Driver Safety Mechanism and DAQ 2.0</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-microchip fa-fw w3-margin-right"></i><span class="w3-tag w3-teal w3-round">Arduino, IoT, WiFi</span></h6>
-          <p>Extended the previous data collecting Hub for NX-06 into NX-07 for extra features like GPS positioning of the vehicle and a dashboard on laptop connected to vehicle for real time tracking and monitoring by the crew members at the pit. 
-Also a driver safety mechanism has been included which prevents starting of the vehicle if seat belts are not worn.
-</p>
-          <hr>
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>Unmanned Aerial Vehicle</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-microchip fa-fw w3-margin-right"></i><span class="w3-tag w3-teal w3-round">Drone, PID, Mechanics</span></h6>
-          <p>Using the principle of Newton’s 3rd law of motion engineered the quadcopter using brushless   motors, dedicated flight controller using arduino UNO and accelerometer and 3D printed minimalistic frame. Giving it a capability of hovering at about 10cm of altitude to upto the range of the transmitter-receiver system.</p>
-          <hr>
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>E-Yantra</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-microchip fa-fw w3-margin-right"></i><span class="w3-tag w3-teal w3-round">AVR, Embedded C, Image Processing, Python, Path Planning</span></h6>
-          <p>Participated in a competition by IIT Bombay in collaboration with MHRD, where we had   to program a robot in embedded C to make it fully autonomous to detect and overcome the obstructions in the path with help of concepts of image processing using Python and OpenCV. My team got AIR 4 in our theme out of 161 teams.</p>
-          <hr>
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b>All Terrain Robot</b></h5>
-          <h6 class="w3-text-teal"><i class="fa fa-microchip fa-fw w3-margin-right"></i><span class="w3-tag w3-teal w3-round">Robotics</span></h6>
-          <p>Fabricated all-wheel electric drive using high torque dc geared motor for movement in rugged terrain. Innovating electric brake, which locks wheels in just few milliseconds.</p>
-          <hr>
-        </div>
-        
+    /* Center card */
+    .wrap {
+      position: relative;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+    .card {
+      width: min(720px, 94vw);
+      background: linear-gradient(135deg, var(--card), var(--card2));
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 24px;
+      padding: clamp(18px, 3vw, 34px);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(28px, 4.2vw, 52px);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      text-shadow: 0 10px 25px rgba(0,0,0,.30);
+    }
+    .sub {
+      margin: 0 0 24px;
+      font-size: clamp(14px, 1.6vw, 18px);
+      opacity: 0.95;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    button {
+      border: none;
+      border-radius: 999px;
+      padding: 14px 22px;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      color: white;
+      transition: transform .12s ease, filter .12s ease, background .2s ease;
+      box-shadow: 0 14px 30px rgba(0,0,0,.25);
+      min-width: 140px;
+    }
+    button:active { transform: translateY(1px) scale(0.99); }
+    .yes { background: linear-gradient(135deg, #16a34a, var(--yes)); }
+    .no  { background: linear-gradient(135deg, #dc2626, var(--no)); }
+    button:hover { filter: brightness(1.05); transform: translateY(-1px); }
+
+    .msg {
+      margin-top: 14px;
+      font-size: 18px;
+      font-weight: 600;
+      min-height: 26px;
+      opacity: 0.98;
+    }
+
+    /* Confetti canvas on top */
+    canvas#confetti {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    /* Little badge */
+    .badge {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.18);
+      border: 1px solid rgba(255,255,255,0.18);
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="pattern"></div>
+  <div class="floaters" id="floaters"></div>
+
+  <canvas id="confetti"></canvas>
+
+  <main class="wrap">
+    <section class="card" role="dialog" aria-label="Valentine question">
+      <div class="badge">💘 🌹 <span>Valentine Mode</span></div>
+      <h1>Will you be my valentine<br/>dear <span style="text-decoration: underline;">Nandini</span>?</h1>
+      <p class="sub">One click can make my day. 😄</p>
+
+      <div class="buttons">
+        <button class="yes" id="yesBtn">Yes 💖</button>
+        <button class="no" id="noBtn">No 😶</button>
       </div>
 
-      <div class="w3-container w3-card w3-white">
-        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Internships</h2>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><i class="fa fa-suitcase fa-fw w3-margin-right"></i>LUMBINI ELITE SOLUTIONS, BANGALORE</h5>
-          <h6 class="w3-text-teal"><i class="fa fa-tag fa-fw w3-margin-right"></i>REMOTE MONITORING SYSTEM FOR SOLAR WATER PUMP</h6>
-          <p>Worked on development of a GPRS unit in Arduino Environment with Atmega 2560 and GSM Module to read various parameters from motor driver in solar water pump and sending the data over GPRS network to a remote server for further processing and analysis to monitor the working of the solar water pump and rectify faults remotely without use of repair personnel’s.</p>
-          <hr>
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b class="fa fa-suitcase fa-fw w3-margin-right"></b>MCA DEPARTMENT, NIT KURUKSHETRA</h5>
-          <h6 class="w3-text-teal"><i class="fa fa-tag fa-fw w3-margin-right"></i>INTELLIGENT DECISION SUPPPORT SYSTEM FOR DRDO</h6>
-          <p>Developed an input sub-system for early detection of natural calamities and accidents through use of various sensors together so as to carry out the necessary decisions & actions needed during emergency situations, suggested by recommendation engine run via rule and case based reasoning of Ontologies and knowledge base.
-Under the guidance of Dr. Sarika Jain, Assistant Professor, MCA Dept., NIT Kurukshetra.
-</p>
-          <hr>
-        </div>
-      </div>
+      <div class="msg" id="msg"></div>
+    </section>
+  </main>
 
+  <script>
+    // ---------- Floating background emojis ----------
+    const floatersEl = document.getElementById('floaters');
+    const EMOJIS = ["💖","💘","❤️","💕","💗","🌹","💞","💝","🌹","❤️‍🔥"];
+    const FLOATER_COUNT = 26;
 
-<br>
+    function rand(min, max) { return Math.random() * (max - min) + min; }
 
+    for (let i = 0; i < FLOATER_COUNT; i++) {
+      const s = document.createElement('span');
+      s.className = 'floater';
+      s.textContent = EMOJIS[Math.floor(Math.random() * EMOJIS.length)];
+      s.style.left = rand(0, 100) + 'vw';
+      s.style.animationDuration = rand(7, 14) + 's';
+      s.style.animationDelay = rand(-12, 0) + 's';
+      s.style.opacity = rand(0.35, 0.9);
+      s.style.transform = `translateY(${rand(0, 100)}vh)`;
+      floatersEl.appendChild(s);
+    }
 
-      <div class="w3-container w3-card w3-white">
-        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-futbol-o fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Extras</h2>
+    // ---------- Buttons logic ----------
+    const yesBtn = document.getElementById('yesBtn');
+    const noBtn  = document.getElementById('noBtn');
+    const msgEl  = document.getElementById('msg');
 
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b class="fa fa-suitcase fa-fw w3-margin-right"></b>TEACHING ASSISTANT FOR IOT GIAN COURSE</h5>
-          <p>Worked as a teaching assistant for the GIAN Course on ‘IOT for Connected Future’  to Prof.  San Murugsen, University  of Melbourne conducted by MCA department, NIT Kurukshetra. Dealt with hardware aspect of IOT.</p>
-          <hr>
-        </div>
+    let noConverted = false;
 
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b class="fa fa-suitcase fa-fw w3-margin-right"></b>IoT INSTRUCTOR A CISCO THINGQUBATOR, IGDTUW DELHI</h5>
-          <p>Conducted regular workshop in IGDTUW DELHI on IoT.</p>
-          <hr>
-        </div>
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b class="fa fa-suitcase fa-fw w3-margin-right"></b>TECH EXPO (STUDENT EXHIBITION)</h5>
-          <p>Won first prize for displaying the project Unmanned Aerial Vehicle at Tech Expo during Techspardha 2017(Annual Tech Fest of NIT Kurukshetra.</p>
-          <hr>
-        </div>
+    noBtn.addEventListener('click', () => {
+      msgEl.textContent = "Think again 😌";
+      if (!noConverted) {
+        noConverted = true;
+        noBtn.textContent = "HELL YES 😍";
+        noBtn.classList.remove('no');
+        noBtn.style.background = "linear-gradient(135deg, #16a34a, #22c55e)";
+        noBtn.style.transform = "scale(1.06)";
+        setTimeout(() => (noBtn.style.transform = ""), 220);
+      }
+    });
 
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b class="fa fa-suitcase fa-fw w3-margin-right"></b>AUTOKRITI 7.0, 8.0, 9.0 ELECTRONICS LECTURE</h5>
-          <p>Taught implementation of automobile functions like ABS, speed control, ECU simulation using electronic arduino, sensors and actuators to those attending the workshop Autokriti.</p>
-          <hr>
-        </div>
+    yesBtn.addEventListener('click', () => {
+      msgEl.textContent = "YAYYYYY!!! 💘🌹";
+      popConfetti();
+    });
 
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b class="fa fa-suitcase fa-fw w3-margin-right"></b>ROBORACE NSIT DELHI</h5>
-          <p>Participated in roborace with all terrain robot which required us to make a robot which could go through any type of terrain in minimum amount of time possible.</p>
-          <hr>
-        </div>
+    noBtn.addEventListener('click', () => {
+      if (noConverted) {
+        // second click after conversion = HELL YES -> confetti
+        // If user clicks immediately after converting, it'll still run this.
+        // (We already set message above for first click; so override on subsequent)
+        if (noBtn.textContent.includes("HELL YES")) {
+          // If it’s the first click that converted, we don't want to instantly confetti.
+          // We'll treat "first conversion click" as not confetti; subsequent click triggers.
+          // So we detect by a small time window? Simpler: use a flag.
+        }
+      }
+    });
 
-        <div class="w3-container">
-          <h5 class="w3-opacity"><b class="fa fa-suitcase fa-fw w3-margin-right"></b>ARMAGEDDON IIT ROORKEE </h5>
-          <p>Participated in Armageddon with war robot with a unconventional small and economic  robot to fight and eliminate other opponent robots.</p>
-          <hr>
-        </div>
+    // Better: track if conversion already happened AND this is a second click
+    let hellYesArmed = false;
+    noBtn.addEventListener('click', () => {
+      if (!noConverted) return; // conversion handled above
 
-      </div>
+      if (!hellYesArmed) {
+        // First click that did conversion
+        hellYesArmed = true;
+        return;
+      }
+      // Second click = confetti
+      msgEl.textContent = "I knew it 😄💖";
+      popConfetti();
+    });
 
-    <!-- End Right Column -->
-    </div>
-    
-  <!-- End Grid -->
-  </div>
-  
-  <!-- End Page Container -->
-</div>
+    // ---------- Confetti (canvas) ----------
+    const canvas = document.getElementById('confetti');
+    const ctx = canvas.getContext('2d');
 
-<footer class="w3-container w3-teal w3-center w3-margin-top">
-  <p>Find me on social media.</p>
-  <i class="fa fa-facebook-official w3-hover-opacity"></i>
-  <i class="fa fa-instagram w3-hover-opacity"></i>
-  <i class="fa fa-snapchat w3-hover-opacity"></i>
-  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-  <i class="fa fa-twitter w3-hover-opacity"></i>
-  <i class="fa fa-linkedin w3-hover-opacity"></i>
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
-</footer>
+    function resizeCanvas() {
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = Math.floor(window.innerWidth * dpr);
+      canvas.height = Math.floor(window.innerHeight * dpr);
+      canvas.style.width = window.innerWidth + "px";
+      canvas.style.height = window.innerHeight + "px";
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
 
+    let confettiRunning = false;
+    let particles = [];
+    let endAt = 0;
+
+    function popConfetti() {
+      const now = performance.now();
+      endAt = now + 1500; // 1.5s burst
+
+      // create burst
+      const count = 180;
+      const cx = window.innerWidth / 2;
+      const cy = window.innerHeight * 0.35;
+
+      for (let i = 0; i < count; i++) {
+        const angle = rand(0, Math.PI * 2);
+        const speed = rand(3, 9);
+        particles.push({
+          x: cx + rand(-20, 20),
+          y: cy + rand(-10, 10),
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed - rand(2, 6),
+          g: rand(0.10, 0.18),
+          size: rand(6, 10),
+          rot: rand(0, Math.PI),
+          vr: rand(-0.2, 0.2),
+          alpha: 1,
+          fade: rand(0.008, 0.015),
+          // bright festive colors
+          color: `hsl(${Math.floor(rand(0, 360))} 90% 60%)`
+        });
+      }
+
+      if (!confettiRunning) {
+        confettiRunning = true;
+        requestAnimationFrame(tick);
+      }
+    }
+
+    function tick(t) {
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+      particles = particles.filter(p => p.alpha > 0.02 && p.y < window.innerHeight + 40);
+
+      for (const p of particles) {
+        p.vy += p.g;
+        p.x += p.vx;
+        p.y += p.vy;
+        p.rot += p.vr;
+        p.alpha -= p.fade;
+
+        ctx.globalAlpha = Math.max(p.alpha, 0);
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rot);
+        ctx.fillStyle = p.color;
+        ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.7);
+        ctx.restore();
+      }
+      ctx.globalAlpha = 1;
+
+      const now = performance.now();
+      const shouldContinue = particles.length > 0 || now < endAt;
+
+      if (shouldContinue) {
+        requestAnimationFrame(tick);
+      } else {
+        confettiRunning = false;
+        ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      }
+    }
+  </script>
 </body>
 </html>
