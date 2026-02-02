@@ -5,157 +5,159 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Valentine 💘</title>
   <style>
-    :root {
-      --bg1: #7a001a;
-      --bg2: #b3002d;
-      --card: rgba(255, 255, 255, 0.12);
-      --card2: rgba(255, 255, 255, 0.18);
-      --text: #fff;
-      --yes: #22c55e;
-      --no: #ef4444;
-      --shadow: 0 16px 45px rgba(0,0,0,.35);
+    :root{
+      --bg1:#7a001a; --bg2:#b3002d;
+      --card: rgba(255,255,255,0.12);
+      --card2: rgba(255,255,255,0.18);
+      --text:#fff;
+      --yes:#22c55e; --no:#ef4444;
+      --shadow:0 16px 45px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family: ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+    body{
+      overflow:hidden;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 30% 20%, #ff4d6d 0%, rgba(255,77,109,0.0) 55%),
+        radial-gradient(900px 600px at 70% 80%, #ff8fab 0%, rgba(255,143,171,0.0) 55%),
+        linear-gradient(135deg,var(--bg1),var(--bg2));
+      position:relative;
     }
 
-    * { box-sizing: border-box; }
-    html, body { height: 100%; margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; }
-
-    /* Animated hearts + roses background */
-    body {
-      overflow: hidden;
-      color: var(--text);
-      background: radial-gradient(1200px 700px at 30% 20%, #ff4d6d 0%, rgba(255,77,109,0.0) 55%),
-                  radial-gradient(900px 600px at 70% 80%, #ff8fab 0%, rgba(255,143,171,0.0) 55%),
-                  linear-gradient(135deg, var(--bg1), var(--bg2));
-      position: relative;
-    }
-
-    /* Emoji pattern layer */
-    .pattern {
-      position: absolute;
-      inset: -20%;
-      opacity: 0.18;
-      transform: rotate(-10deg);
-      pointer-events: none;
-      filter: blur(0.2px);
+    .pattern{
+      position:absolute; inset:-20%;
+      opacity:.18; transform:rotate(-10deg);
+      pointer-events:none;
       background-image:
-        radial-gradient(circle at 10px 10px, rgba(255,255,255,0.15) 0 1px, transparent 1px),
-        radial-gradient(circle at 40px 40px, rgba(255,255,255,0.10) 0 1px, transparent 1px);
-      background-size: 60px 60px;
+        radial-gradient(circle at 10px 10px, rgba(255,255,255,.15) 0 1px, transparent 1px),
+        radial-gradient(circle at 40px 40px, rgba(255,255,255,.10) 0 1px, transparent 1px);
+      background-size:60px 60px;
       animation: floatPattern 10s ease-in-out infinite alternate;
     }
-    @keyframes floatPattern {
-      from { transform: translate(-1.5%, -1.5%) rotate(-10deg); }
-      to   { transform: translate(1.5%, 1.5%) rotate(-10deg); }
+    @keyframes floatPattern{
+      from{transform:translate(-1.5%,-1.5%) rotate(-10deg)}
+      to{transform:translate(1.5%,1.5%) rotate(-10deg)}
     }
 
-    /* Floating emoji (hearts + roses) */
-    .floaters {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      overflow: hidden;
-    }
-    .floater {
-      position: absolute;
-      font-size: clamp(18px, 2.2vw, 32px);
-      opacity: 0.8;
+    .floaters{position:absolute; inset:0; pointer-events:none; overflow:hidden;}
+    .floater{
+      position:absolute;
+      font-size:clamp(18px,2.2vw,32px);
+      opacity:.8;
       animation: rise linear infinite;
       filter: drop-shadow(0 8px 10px rgba(0,0,0,.25));
       will-change: transform, opacity;
     }
-    @keyframes rise {
-      0%   { transform: translateY(110vh) translateX(0) rotate(0deg); opacity: 0; }
-      10%  { opacity: 0.85; }
-      90%  { opacity: 0.85; }
-      100% { transform: translateY(-30vh) translateX(40px) rotate(20deg); opacity: 0; }
+    @keyframes rise{
+      0%{transform:translateY(110vh) translateX(0) rotate(0deg); opacity:0}
+      10%{opacity:.85}
+      90%{opacity:.85}
+      100%{transform:translateY(-30vh) translateX(40px) rotate(20deg); opacity:0}
     }
 
-    /* Center card */
-    .wrap {
-      position: relative;
-      height: 100%;
-      display: grid;
-      place-items: center;
-      padding: 24px;
+    canvas#confetti{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      pointer-events:none; z-index:10;
     }
-    .card {
-      width: min(720px, 94vw);
-      background: linear-gradient(135deg, var(--card), var(--card2));
-      border: 1px solid rgba(255,255,255,0.22);
-      border-radius: 24px;
-      padding: clamp(18px, 3vw, 34px);
-      box-shadow: var(--shadow);
+
+    .wrap{
+      position:relative;
+      height:100%;
+      display:grid;
+      place-items:end center;   /* mobile-friendly: lower on screen */
+      padding: 18px;
+      padding-bottom: max(24px, env(safe-area-inset-bottom));
+    }
+
+    .card{
+      width:min(720px,94vw);
+      background:linear-gradient(135deg,var(--card),var(--card2));
+      border:1px solid rgba(255,255,255,.22);
+      border-radius:24px;
+      padding: clamp(16px, 3vw, 30px);
+      box-shadow:var(--shadow);
       backdrop-filter: blur(10px);
-      text-align: center;
+      text-align:center;
     }
 
-    h1 {
-      margin: 0 0 10px;
+    h1{
+      margin:0 0 10px;
       font-size: clamp(28px, 4.2vw, 52px);
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-      text-shadow: 0 10px 25px rgba(0,0,0,.30);
+      line-height:1.05;
+      letter-spacing:-0.02em;
+      text-shadow:0 10px 25px rgba(0,0,0,.30);
     }
-    .sub {
-      margin: 0 0 24px;
-      font-size: clamp(14px, 1.6vw, 18px);
-      opacity: 0.95;
+    .sub{margin:0 0 18px; font-size: clamp(14px, 1.6vw, 18px); opacity:.95;}
+
+    .buttons{
+      display:flex; gap:12px; justify-content:center; flex-wrap:wrap;
+      margin-top: 6px;
     }
 
-    .buttons {
-      display: flex;
-      gap: 14px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 10px;
-    }
-    button {
-      border: none;
-      border-radius: 999px;
+    button{
+      border:none; border-radius:999px;
       padding: 14px 22px;
-      font-size: 18px;
-      font-weight: 700;
-      cursor: pointer;
-      color: white;
+      font-size:18px; font-weight:800;
+      cursor:pointer; color:white;
       transition: transform .12s ease, filter .12s ease, background .2s ease;
-      box-shadow: 0 14px 30px rgba(0,0,0,.25);
-      min-width: 140px;
+      box-shadow:0 14px 30px rgba(0,0,0,.25);
+      min-width: 150px;
+      min-height: 52px; /* thumb-friendly */
+      touch-action: manipulation;
+      user-select:none;
     }
-    button:active { transform: translateY(1px) scale(0.99); }
-    .yes { background: linear-gradient(135deg, #16a34a, var(--yes)); }
-    .no  { background: linear-gradient(135deg, #dc2626, var(--no)); }
-    button:hover { filter: brightness(1.05); transform: translateY(-1px); }
+    button:hover{filter:brightness(1.06); transform:translateY(-1px)}
+    button:active{transform:translateY(1px) scale(.99)}
+    .yes{background:linear-gradient(135deg,#16a34a,var(--yes))}
+    .no{background:linear-gradient(135deg,#dc2626,var(--no))}
 
-    .msg {
+    .msg{margin-top:12px; font-size:18px; font-weight:650; min-height:26px; opacity:.98}
+
+    /* Fullscreen “Yes” screen */
+    .overlay{
+      position:absolute; inset:0;
+      display:none;
+      z-index: 9;
+      place-items:center;
+      padding: 24px;
+      background: rgba(0,0,0,0.25);
+      backdrop-filter: blur(8px);
+    }
+    .overlay.show{display:grid;}
+    .overlayCard{
+      width:min(720px,94vw);
+      border-radius:24px;
+      padding: 22px;
+      background: linear-gradient(135deg, rgba(255,255,255,.16), rgba(255,255,255,.22));
+      border:1px solid rgba(255,255,255,.24);
+      box-shadow: var(--shadow);
+      text-align:center;
+    }
+
+    /* Photo reveal animation */
+    .photoWrap{
       margin-top: 14px;
-      font-size: 18px;
-      font-weight: 600;
-      min-height: 26px;
-      opacity: 0.98;
+      border-radius: 20px;
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,.25);
+      box-shadow: 0 18px 40px rgba(0,0,0,.25);
+      transform: translateY(10px) scale(0.98);
+      opacity: 0;
+      transition: opacity .6s ease, transform .8s ease;
+    }
+    .photoWrap.show{
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    .photoWrap img{
+      width:100%;
+      height:auto;
+      display:block;
     }
 
-    /* Confetti canvas on top */
-    canvas#confetti {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 10;
-    }
-
-    /* Little badge */
-    .badge {
-      display: inline-flex;
-      gap: 8px;
-      align-items: center;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(0,0,0,0.18);
-      border: 1px solid rgba(255,255,255,0.18);
-      font-weight: 600;
-      margin-bottom: 14px;
-    }
+    .tinyNote{opacity:.9; margin:10px 0 0; font-weight:600}
   </style>
 </head>
 
@@ -165,10 +167,26 @@
 
   <canvas id="confetti"></canvas>
 
+  <!-- “YES” overlay screen -->
+  <div class="overlay" id="overlay">
+    <div class="overlayCard">
+      <h1 style="margin-bottom:6px;">YAYYYYY!!! 💘🌹</h1>
+      <p class="sub" style="margin-bottom:10px;">
+        Nandini, you just made me the happiest person ❤️
+      </p>
+
+      <div class="photoWrap" id="photoWrap">
+        <!-- ✅ CHANGE THIS SRC to your photo filename (see instructions below) -->
+        <img id="couplePhoto" src="us.jpeg" alt="Us ❤️" />
+      </div>
+
+      <p class="tinyNote">Happy Valentine’s Day 😄</p>
+    </div>
+  </div>
+
   <main class="wrap">
     <section class="card" role="dialog" aria-label="Valentine question">
-      <div class="badge">💘 🌹 <span>Valentine Mode</span></div>
-      <h1>Will you be my valentine<br/>dear <span style="text-decoration: underline;">Nandini</span>?</h1>
+      <h1>Will you be my valentine<br/>dear <span style="text-decoration:underline;">Nandini</span>?</h1>
       <p class="sub">One click can make my day. 😄</p>
 
       <div class="buttons">
@@ -181,136 +199,191 @@
   </main>
 
   <script>
-    // ---------- Floating background emojis ----------
+    // ---------------------- 1) BACKGROUND MUSIC (starts after first tap) ----------------------
+    // ✅ Put an audio file in your repo and set its name here:
+    // Example: "music.mp3" (see instructions below)
+    const MUSIC_FILE = "gehra.mp3";
+    const music = new Audio(MUSIC_FILE);
+    music.loop = true;
+    music.volume = 0.0;
+
+    let audioStarted = false;
+    async function startMusicOnce(){
+      if (audioStarted) return;
+      audioStarted = true;
+      try{
+        await music.play();           // allowed only after user gesture
+        fadeInMusic();
+      }catch(e){
+        // If autoplay still blocked, it will just stay silent.
+      }
+    }
+
+    function fadeInMusic(){
+      const target = 0.35;
+      const step = 0.02;
+      const id = setInterval(() => {
+        music.volume = Math.min(target, music.volume + step);
+        if (music.volume >= target) clearInterval(id);
+      }, 80);
+    }
+
+    // Start music on the FIRST user interaction anywhere
+    window.addEventListener("pointerdown", startMusicOnce, { once:true });
+
+    // ---------------------- Floating background emojis ----------------------
     const floatersEl = document.getElementById('floaters');
     const EMOJIS = ["💖","💘","❤️","💕","💗","🌹","💞","💝","🌹","❤️‍🔥"];
     const FLOATER_COUNT = 26;
 
-    function rand(min, max) { return Math.random() * (max - min) + min; }
+    function rand(min,max){ return Math.random()*(max-min)+min; }
 
-    for (let i = 0; i < FLOATER_COUNT; i++) {
-      const s = document.createElement('span');
-      s.className = 'floater';
-      s.textContent = EMOJIS[Math.floor(Math.random() * EMOJIS.length)];
-      s.style.left = rand(0, 100) + 'vw';
-      s.style.animationDuration = rand(7, 14) + 's';
-      s.style.animationDelay = rand(-12, 0) + 's';
-      s.style.opacity = rand(0.35, 0.9);
-      s.style.transform = `translateY(${rand(0, 100)}vh)`;
+    for(let i=0;i<FLOATER_COUNT;i++){
+      const s=document.createElement('span');
+      s.className='floater';
+      s.textContent=EMOJIS[Math.floor(Math.random()*EMOJIS.length)];
+      s.style.left=rand(0,100)+'vw';
+      s.style.animationDuration=rand(7,14)+'s';
+      s.style.animationDelay=rand(-12,0)+'s';
+      s.style.opacity=rand(0.35,0.9);
       floatersEl.appendChild(s);
     }
 
-    // ---------- Buttons logic ----------
-    const yesBtn = document.getElementById('yesBtn');
-    const noBtn  = document.getElementById('noBtn');
-    const msgEl  = document.getElementById('msg');
+    // ---------------------- 2) “NO” button playful behavior ----------------------
+    const yesBtn=document.getElementById('yesBtn');
+    const noBtn=document.getElementById('noBtn');
+    const msgEl=document.getElementById('msg');
 
-    let noConverted = false;
+    let noConverted=false;
+    let hellYesArmed=false;
+    let noScale = 1;
+
+    // We'll move the NO button by translating it (mobile-friendly)
+    function dodgeNoButton(){
+      const dx = rand(-80, 80);
+      const dy = rand(-60, 40);
+      noScale = Math.max(0.75, noScale - 0.06);
+      noBtn.style.transform = `translate(${dx}px, ${dy}px) scale(${noScale})`;
+    }
 
     noBtn.addEventListener('click', () => {
-      msgEl.textContent = "Think again 😌";
-      if (!noConverted) {
-        noConverted = true;
-        noBtn.textContent = "HELL YES 😍";
+      // 3) VIBRATION on tap
+      if (navigator.vibrate) navigator.vibrate(35);
+
+      // First click: “Think again” + convert NO -> HELL YES (but playful)
+      msgEl.textContent="Think again 😌";
+      dodgeNoButton();
+
+      if(!noConverted){
+        noConverted=true;
+        noBtn.textContent="HELL YES 😍";
         noBtn.classList.remove('no');
-        noBtn.style.background = "linear-gradient(135deg, #16a34a, #22c55e)";
-        noBtn.style.transform = "scale(1.06)";
-        setTimeout(() => (noBtn.style.transform = ""), 220);
-      }
-    });
-
-    yesBtn.addEventListener('click', () => {
-      msgEl.textContent = "YAYYYYY!!! 💘🌹";
-      popConfetti();
-    });
-
-    noBtn.addEventListener('click', () => {
-      if (noConverted) {
-        // second click after conversion = HELL YES -> confetti
-        // If user clicks immediately after converting, it'll still run this.
-        // (We already set message above for first click; so override on subsequent)
-        if (noBtn.textContent.includes("HELL YES")) {
-          // If it’s the first click that converted, we don't want to instantly confetti.
-          // We'll treat "first conversion click" as not confetti; subsequent click triggers.
-          // So we detect by a small time window? Simpler: use a flag.
-        }
-      }
-    });
-
-    // Better: track if conversion already happened AND this is a second click
-    let hellYesArmed = false;
-    noBtn.addEventListener('click', () => {
-      if (!noConverted) return; // conversion handled above
-
-      if (!hellYesArmed) {
-        // First click that did conversion
-        hellYesArmed = true;
+        noBtn.style.background="linear-gradient(135deg,#16a34a,#22c55e)";
         return;
       }
-      // Second click = confetti
-      msgEl.textContent = "I knew it 😄💖";
-      popConfetti();
+
+      // Second click after conversion: confetti
+      if(!hellYesArmed){
+        hellYesArmed=true;
+        // tease a bit
+        msgEl.textContent="Hehe… one more tap 😄";
+        dodgeNoButton();
+        return;
+      }
+
+      msgEl.textContent="I knew it 😄💖";
+      if (navigator.vibrate) navigator.vibrate([40, 40, 80]);
+      popConfetti(true);
+      showYesScreen();
     });
 
-    // ---------- Confetti (canvas) ----------
-    const canvas = document.getElementById('confetti');
-    const ctx = canvas.getContext('2d');
+    // ---------------------- 4) YES -> confetti + second screen ----------------------
+    yesBtn.addEventListener('click', () => {
+      if (navigator.vibrate) navigator.vibrate([30, 40, 70]);
+      msgEl.textContent="YAYYYYY!!! 💘🌹";
+      popConfetti(true);
+      showYesScreen();
+    });
 
-    function resizeCanvas() {
-      const dpr = window.devicePixelRatio || 1;
-      canvas.width = Math.floor(window.innerWidth * dpr);
-      canvas.height = Math.floor(window.innerHeight * dpr);
-      canvas.style.width = window.innerWidth + "px";
-      canvas.style.height = window.innerHeight + "px";
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    // ---------------------- 5) Photo reveal on YES screen ----------------------
+    const overlay = document.getElementById("overlay");
+    const photoWrap = document.getElementById("photoWrap");
+
+    function showYesScreen(){
+      overlay.classList.add("show");
+      // reveal photo after a tiny delay
+      setTimeout(() => photoWrap.classList.add("show"), 250);
+    }
+
+    // ---------------------- Confetti (hearts + squares) ----------------------
+    const canvas=document.getElementById('confetti');
+    const ctx=canvas.getContext('2d');
+
+    function resizeCanvas(){
+      const dpr=window.devicePixelRatio||1;
+      canvas.width=Math.floor(window.innerWidth*dpr);
+      canvas.height=Math.floor(window.innerHeight*dpr);
+      canvas.style.width=window.innerWidth+"px";
+      canvas.style.height=window.innerHeight+"px";
+      ctx.setTransform(dpr,0,0,dpr,0,0);
     }
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
 
-    let confettiRunning = false;
-    let particles = [];
-    let endAt = 0;
+    let confettiRunning=false;
+    let particles=[];
+    let endAt=0;
 
-    function popConfetti() {
-      const now = performance.now();
-      endAt = now + 1500; // 1.5s burst
+    function popConfetti(extra=true){
+      const now=performance.now();
+      endAt=now+1600;
 
-      // create burst
-      const count = 180;
-      const cx = window.innerWidth / 2;
-      const cy = window.innerHeight * 0.35;
+      const count= extra ? 220 : 160;
+      const cx=window.innerWidth/2;
+      const cy=window.innerHeight*0.35;
 
-      for (let i = 0; i < count; i++) {
-        const angle = rand(0, Math.PI * 2);
-        const speed = rand(3, 9);
+      for(let i=0;i<count;i++){
+        const angle=rand(0,Math.PI*2);
+        const speed=rand(3,9);
         particles.push({
-          x: cx + rand(-20, 20),
-          y: cy + rand(-10, 10),
-          vx: Math.cos(angle) * speed,
-          vy: Math.sin(angle) * speed - rand(2, 6),
-          g: rand(0.10, 0.18),
-          size: rand(6, 10),
-          rot: rand(0, Math.PI),
-          vr: rand(-0.2, 0.2),
-          alpha: 1,
-          fade: rand(0.008, 0.015),
-          // bright festive colors
-          color: `hsl(${Math.floor(rand(0, 360))} 90% 60%)`
+          x:cx+rand(-25,25),
+          y:cy+rand(-15,15),
+          vx:Math.cos(angle)*speed,
+          vy:Math.sin(angle)*speed - rand(2,6),
+          g:rand(0.10,0.18),
+          size:rand(7,12),
+          rot:rand(0,Math.PI),
+          vr:rand(-0.25,0.25),
+          alpha:1,
+          fade:rand(0.008,0.015),
+          color:`hsl(${Math.floor(rand(0,360))} 90% 60%)`,
+          isHeart: Math.random() < 0.35
         });
       }
 
-      if (!confettiRunning) {
-        confettiRunning = true;
+      if(!confettiRunning){
+        confettiRunning=true;
         requestAnimationFrame(tick);
       }
     }
 
-    function tick(t) {
-      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    function drawHeart(x, y, size){
+      const s = size * 0.06;
+      ctx.beginPath();
+      ctx.moveTo(x, y + 10*s);
+      ctx.bezierCurveTo(x, y, x - 16*s, y, x - 16*s, y + 10*s);
+      ctx.bezierCurveTo(x - 16*s, y + 22*s, x, y + 26*s, x, y + 34*s);
+      ctx.bezierCurveTo(x, y + 26*s, x + 16*s, y + 22*s, x + 16*s, y + 10*s);
+      ctx.bezierCurveTo(x + 16*s, y, x, y, x, y + 10*s);
+      ctx.closePath();
+      ctx.fill();
+    }
 
-      particles = particles.filter(p => p.alpha > 0.02 && p.y < window.innerHeight + 40);
+    function tick(){
+      ctx.clearRect(0,0,window.innerWidth,window.innerHeight);
+      particles = particles.filter(p => p.alpha > 0.02 && p.y < window.innerHeight + 50);
 
-      for (const p of particles) {
+      for(const p of particles){
         p.vy += p.g;
         p.x += p.vx;
         p.y += p.vy;
@@ -322,19 +395,22 @@
         ctx.translate(p.x, p.y);
         ctx.rotate(p.rot);
         ctx.fillStyle = p.color;
-        ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.7);
+
+        if(p.isHeart){
+          drawHeart(0, 0, p.size);
+        }else{
+          ctx.fillRect(-p.size/2, -p.size/2, p.size, p.size*0.75);
+        }
         ctx.restore();
       }
       ctx.globalAlpha = 1;
 
       const now = performance.now();
       const shouldContinue = particles.length > 0 || now < endAt;
-
-      if (shouldContinue) {
-        requestAnimationFrame(tick);
-      } else {
-        confettiRunning = false;
-        ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      if(shouldContinue) requestAnimationFrame(tick);
+      else{
+        confettiRunning=false;
+        ctx.clearRect(0,0,window.innerWidth,window.innerHeight);
       }
     }
   </script>
